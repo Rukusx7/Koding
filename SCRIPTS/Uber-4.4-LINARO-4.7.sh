@@ -56,7 +56,6 @@ echo "${bldpnk} Make the kernel ${txtrst}"
 make cyanogenmod_hercules_defconfig
 
 echo "${bldyel} Clean Environment ${txtrst}"
-make clean
 make menuconfig
 
 echo "${bldcya} Compiling ${txtrst}"
