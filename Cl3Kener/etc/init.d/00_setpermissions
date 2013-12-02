@@ -1,0 +1,26 @@
+#!/system/bin/sh
+#Script to set correct permissions to /system/etc/init.d folder by Ryuinferno @ XDA 2012
+#Modifed init.d, added zipalign and build.prop permission fixes by gruntparty @ XDA 2013
+#Modified to remount /system as ro by bmg002 @ XDA 2013
+
+busybox mount -o remount,rw -t auto /system;
+
+#Init.d
+busybox chown root:shell /system/etc/init.d;
+busybox chmod 755 /system/etc/init.d;
+
+busybox chown -R root:shell /system/etc/init.d;
+busybox chmod -R 755 /system/etc/init.d;
+
+#Zipalign
+busybox chown root.shell /system/xbin/zipalign;
+busybox chmod 755 /system/xbin/zipalign;
+
+busybox chown root.shell /system/xbin/sqlite3;
+busybox chmod 755 /system/xbin/sqlite3;
+
+#Build.prop
+busybox chown root.root /system/build.prop;
+busybox chmod 644 /system/build.prop;
+
+busybox mount -o remount,ro -t auto /system;

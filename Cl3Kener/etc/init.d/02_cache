@@ -1,0 +1,10 @@
+#!/system/bin/sh
+# find doesn't support "delete" as an argument.  Made appropriate changes by bmg002 @ XDA 2013
+
+if busybox [ $REMOVE_CACHE -eq 1 ]; then
+	CACHE_DIR=(` busybox find /data/data -type d -iname *cache* -print `);
+	for dir in ${CACHE_DIR[*]}; do
+#		busybox find $dir -type f -delete
+		rm  $dir/*
+	done
+fi

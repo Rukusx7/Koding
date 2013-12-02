@@ -1,0 +1,11 @@
+#!/system/bin/sh
+# Modified to add MMC into the list for values for j and dropped the second echo to 2048 from 4048 (if 4K was intended value that should be 4096 not 4048 anyways) by bmg002 @ XDA 2013
+
+LOOP=`ls -d /sys/block/loop*`;
+RAM=`ls -d /sys/block/ram*`;
+MMC=`ls -d /sys/block/mmc*`;
+for j in $LOOP $RAM $MMC
+do
+echo "0" > $j/queue/rotational;
+echo "3072" > $j/queue/read_ahead_kb;
+done
