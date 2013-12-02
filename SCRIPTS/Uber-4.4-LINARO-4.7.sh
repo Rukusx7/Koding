@@ -50,6 +50,7 @@ echo "${bldcya} Remove old ramdisk ${txtrst}"
 rm $INITRAMFS_SOURCE/ramdisk.img.gz
 
 echo "${bldpnk} Make the kernel ${txtrst}"
+cd $KERNELDIR
 make cyanogenmod_hercules_defconfig
 
 echo "${bldyel} Clean Environment ${txtrst}"
