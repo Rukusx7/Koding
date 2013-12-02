@@ -26,6 +26,7 @@ export INITRAMFS_SOURCE=~/android/kernel/
 export Meta=~/android/kernel/Cl3Kener/META-INF
 export Etc=~/android/kernel/Cl3Kener/etc
 export Scripts=~/android/kernel/Cl3Kener/scripts
+export BuildBoot=~/android/kernel/BuildBootUBER
 export ARCH=arm
 export CROSS_COMPILE=~/android/kernel/toolchains/linaro-4.7/bin/arm-eabi-
 
@@ -66,21 +67,11 @@ if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
 	echo "${bldred} Copy zImage to OUT ${txtrst}"
 	cp $INITRAMFS_SOURCE/arch/arm/boot/zImage $PACKAGEDIR/zImage
 
-	echo "${bldblu} Packaging Ramdisk ${txtrst}"
-	cd $INITRAMFS_SOURCE/
-	mkbootfs ./ramdisk | gzip > ramdisk.img.gz
-
-	echo "${bldcya} Make boot.img ${txtrst}"
-	cp $INITRAMFS_SOURCE/ramdisk.img.gz $PACKAGEDIR/ramdisk.img.gz
-	cd $PACKAGEDIR
-	mkbootimg --cmdline 'console = null androidboot.hardware=qcom user_debug=31 zcache' --kernel $PACKAGEDIR/zImage --ramdisk $PACKAGEDIR/ramdisk.img.gz --base 0x40400000 --pagesize 2048 --ramdiskaddr 0x41800000 --output $PACKAGEDIR/boot.img
-
 	echo "${bldgrn} Import of META-INF ${txtrst}"
 	cp -R $Meta $PACKAGEDIR
 
 	echo "${bldcya} Import Init.d Tweaks ${txtrst}"
 	cp -R $Etc/init.d $PACKAGEDIR/system/etc
-	cp $Etc/sysctl.conf $PACKAGEDIR/system/etc/sysctl.conf
 
 	echo "${bldblu} Import Scripts ${txtrst}"
 	cp -R $Scripts $PACKAGEDIR
@@ -90,8 +81,6 @@ if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
         rm ~/Compile.log
 
 	cd $PACKAGEDIR
-	rm ramdisk.img.gz
-	rm zImage
 	rm ../UBER-Android-4.4-LINARO-Cl3Kener-Nightly*.zip\
 	rm -R .fr-7q5stU
 	zip -r ../UBER-Android-4.4-LINARO-Cl3Kener-Nightly-$curdate.zip .
