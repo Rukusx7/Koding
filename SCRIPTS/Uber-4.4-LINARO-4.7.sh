@@ -48,10 +48,6 @@ rm arch/arm/boot/zImage
 echo "${bldcya} Remove old ramdisk ${txtrst}"
 rm $INITRAMFS_SOURCE/ramdisk.img.gz
 
-echo -e "${bldred} Removing pesky backup files ${txtrst}"
-cd ~/android/kernel
-find ./ -name '*~' | xargs rm
-
 echo "${bldpnk} Make the kernel ${txtrst}"
 make cyanogenmod_hercules_defconfig
 
@@ -100,12 +96,12 @@ if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
 	rm -R .fr-7q5stU
 	zip -r ../UBER-Android-4.4-LINARO-Cl3Kener-Nightly-$curdate.zip .
 
-	echo "${bldgrn} UBER 4.4 LINARO Kernel has completed successfully!!! ${txtrst}"
+	echo "${bldgrn} UBER 4.4 LINARO Kernel has completed!!! MAKE SURE THAT YOU REALIZE THE ZIP FILE CREATED IS NOT READY. YOU MUST APPEND THE RAMDISK MANUALLY BECAUSE THIS SERVER DOESN'T KNOW HOW ${txtrst}"
 
 else
 	echo "{$bldred} UBER KERNEL IMAGE DID NOT BUILD PROPERLY! Check Compile log! ${txtrst}"
 	export curdate=`date "+%m-%d-%Y"`
-	cp ~/Compile.log ~/android/Logs/Failed-Uber-4.3-LINARO-$curdate.log
+	cp ~/Compile.log ~/android/Logs/Failed-Uber-4.4-LINARO-$curdate.log
 fi;
 
 read -p "Press ENTER to Exit"
