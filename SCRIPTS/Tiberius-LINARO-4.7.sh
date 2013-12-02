@@ -1,5 +1,5 @@
 #!/bin/bash
-#Cl3Kener's Tiberius Script
+#Cl3Kener's Tiberius Builder Script
 
 # Colorize and add text parameters
 red=$(tput setaf 1) # red
@@ -60,11 +60,12 @@ echo "${bldpnk} Make the kernel ${txtrst}"
 make celox_usa_tmo_defconfig
 
 echo "${bldyel} Clean Environment ${txtrst}"
+make clean
 make menuconfig
 
 echo "${bldcya} Compiling ${txtrst}"
 script -q ~/Compile.log -c " 
-make -j7 "
+make -j16 "
 
 if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
 

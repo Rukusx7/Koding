@@ -1,5 +1,5 @@
 #!/bin/bash
-#Cl3Kener's Tiberius Script
+#Cl3Kener's Tiberius 2GHz Script
 
 # Colorize and add text parameters
 red=$(tput setaf 1) # red
@@ -60,11 +60,12 @@ echo "${bldpnk} Make the kernel ${txtrst}"
 make celox_usa_tmo_defconfig
 
 echo "${bldyel} Clean Environment ${txtrst}"
+make clean
 make menuconfig
 
 echo "${bldcya} Compiling ${txtrst}"
 script -q ~/Compile.log -c " 
-make -j7 "
+make -j16 "
 
 if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
 
@@ -109,12 +110,12 @@ if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
 	rm -R .fr-7q5stU
 	zip -r ../Tiberius-2GHz-LINARO-Cl3Kener-Nightly-$curdate.zip .
 
-	echo "${bldgrn} Tiberius LINARO Kernel has completed successfully!!! ${txtrst}"
+	echo "${bldgrn} Tiberius 2 GHz LINARO Kernel has completed successfully!!! ${txtrst}"
 
 else
-	echo "{$bldred} KERNEL IMAGE DID NOT BUILD PROPERLY! Check Compile log! ${txtrst}"
+	echo "{$bldred} TIBERIUS 2 GHz KERNEL IMAGE DID NOT BUILD PROPERLY! Check Compile log! ${txtrst}"
 	export curdate=`date "+%m-%d-%Y"`
-	cp ~/Compile.log ~/android/Logs/Failed-Tiberius-$curdate.log
+	cp ~/Compile.log ~/android/Logs/Failed-Tiberius-2GHz$curdate.log
 fi;
 
 read -p "Press ENTER to Exit"

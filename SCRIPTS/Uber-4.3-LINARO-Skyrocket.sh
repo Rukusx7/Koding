@@ -1,5 +1,5 @@
 #!/bin/bash
-#Cl3Kener's 4.3 Script
+#Cl3Kener's 4.3 Skyrocket Script
 
 # Colorize and add text parameters
 red=$(tput setaf 1) # red
@@ -52,18 +52,16 @@ echo -e "${bldred} Removing pesky backup files ${txtrst}"
 cd ~/android/kernel
 find ./ -name '*~' | xargs rm
 
-echo "${bldgrn} Clean Environment ${txtrst}"
-cd $INITRAMFS_SOURCE
-
 echo "${bldpnk} Make the kernel ${txtrst}"
 make cyanogenmod_skyrocket_defconfig
 
 echo "${bldyel} Clean Environment ${txtrst}"
+make clean
 make menuconfig
 
 echo "${bldcya} Compiling ${txtrst}"
 script -q ~/Compile.log -c " 
-make -j7 "
+make -j16 "
 
 if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
 
@@ -103,12 +101,12 @@ if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
 	rm -R .fr-7q5stU
 	zip -r ../UBER-4.3-LINARO-Cl3Kener-SkyRocket-$curdate.zip .
 
-	echo "${bldgrn} UBER LINARO Kernel has completed successfully!!! ${txtrst}"
+	echo "${bldgrn} UBER Skyrocket Kernel has completed successfully!!! ${txtrst}"
 
 else
-	echo "{$bldred} KERNEL IMAGE DID NOT BUILD PROPERLY! Check Compile log! ${txtrst}"
+	echo "{$bldred} SKYROCKET KERNEL IMAGE DID NOT BUILD PROPERLY! Check Compile log! ${txtrst}"
 	export curdate=`date "+%m-%d-%Y"`
-	cp ~/Compile.log ~/android/Logs/Failed-Uber-4.3-LINARO-$curdate.log
+	cp ~/Compile.log ~/android/Logs/Failed-Uber-4.3-Skyrocket-LINARO-$curdate.log
 fi;
 
 read -p "Press ENTER to Exit"

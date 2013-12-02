@@ -1,5 +1,5 @@
 #!/bin/bash
-#Cl3Kener's 4.2.2 Script
+#Cl3Kener's  UBER 2GHz Kernel Script
 
 # Colorize and add text parameters
 red=$(tput setaf 1) # red
@@ -58,11 +58,12 @@ echo "${bldpnk} Make the kernel ${txtrst}"
 make cyanogenmod_hercules_defconfig
 
 echo "${bldyel} Clean Environment ${txtrst}"
+make clean
 make menuconfig
 
 echo "${bldcya} Compiling ${txtrst}"
 script -q ~/Compile.log -c " 
-make -j7 "
+make -j16 "
 
 if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
 
@@ -105,9 +106,9 @@ if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
 	echo "${bldgrn} UBER 2GHz Kernel has completed successfully!!! ${txtrst}"
 
 else
-	echo "{$bldred} KERNEL IMAGE DID NOT BUILD PROPERLY! Check Compile log! ${txtrst}"
+	echo "{$bldred} UBER 2GHz KERNEL IMAGE DID NOT BUILD PROPERLY! Check Compile log! ${txtrst}"
 	export curdate=`date "+%m-%d-%Y"`
-	cp ~/Compile.log ~/android/Logs/Failed-Uber-$curdate.log
+	cp ~/Compile.log ~/android/Logs/Failed-Uber-2GHz-Kernel-$curdate.log
 fi;
 
 read -p "Press ENTER to Exit"
