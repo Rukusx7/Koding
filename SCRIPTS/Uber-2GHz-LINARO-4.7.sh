@@ -29,7 +29,13 @@ export Scripts=~/android/kernel/Cl3Kener/scripts
 export ARCH=arm
 export CROSS_COMPILE=~/android/kernel/toolchains/linaro-4.7/bin/arm-eabi-
 
-echo "${bldcya} Remove old Package Files ${txtrst}"
+echo "${bldred} _|    _|  _|_|_|    _|_|_|_|  _|_|_|   ${txtrst}"
+echo "${bldred} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
+echo "${bldred} _|    _|  _|_|_|    _|_|_|    _|_|_|   ${txtrst}"
+echo "${bldred} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
+echo "${bldred} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
+echo "${bldred}   _|_|    _|_|_|    _|_|_|_|  _|    _| ${txtrst}"
+
 rm -rf $PACKAGEDIR/*
 
 echo "${bldpur} Setup Package Directory ${txtrst}"
@@ -91,7 +97,14 @@ if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
 	rm -R .fr-7q5stU
 	zip -r ../UBER-2GHz-Cl3Kener-LINARO-$curdate.zip .
 
-	echo "${bldgrn} UBER 4.4 LINARO Kernel has completed!!! MAKE SURE THAT YOU REALIZE THE ZIP FILE CREATED IS NOT READY. YOU MUST APPEND THE RAMDISK MANUALLY BECAUSE THIS SERVER DOESN'T KNOW HOW ${txtrst}"
+	echo "${bldgrn} _|    _|  _|_|_|    _|_|_|_|  _|_|_|   ${txtrst}"
+	echo "${bldgrn} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
+	echo "${bldgrn} _|    _|  _|_|_|    _|_|_|    _|_|_|   ${txtrst}"
+	echo "${bldgrn} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
+	echo "${bldgrn} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
+	echo "${bldgrn}   _|_|    _|_|_|    _|_|_|_|  _|    _| ${txtrst}"
+
+	echo "${bldgrn} Kernel has completed sucessfully!!! MAKE SURE THAT YOU REALIZE THE ZIP FILE CREATED IS NOT READY. YOU MUST APPEND THE RAMDISK MANUALLY BECAUSE THIS SERVER DOESN'T KNOW HOW ${txtrst}"
 
 else
 	echo "{$bldred} UBER 2GHz KERNEL IMAGE DID NOT BUILD PROPERLY! Check Compile log! ${txtrst}"
