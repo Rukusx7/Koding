@@ -87,7 +87,14 @@ if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
 	rm -R .fr-7q5stU
 	zip -r ../UBER-Android-4.4-LINARO-Cl3Kener-Nightly-$curdate.zip .
 
-	echo "${bldgrn} UBER 4.4 LINARO Kernel has completed!!! MAKE SURE THAT YOU REALIZE THE ZIP FILE CREATED IS NOT READY. YOU MUST APPEND THE RAMDISK MANUALLY BECAUSE THIS SERVER DOESN'T KNOW HOW ${txtrst}"
+	echo "${bldgrn} _|    _|  _|_|_|    _|_|_|_|  _|_|_|   ${txtrst}"
+	echo "${bldgrn} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
+	echo "${bldgrn} _|    _|  _|_|_|    _|_|_|    _|_|_|   ${txtrst}"
+	echo "${bldgrn} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
+	echo "${bldgrn} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
+	echo "${bldgrn}   _|_|    _|_|_|    _|_|_|_|  _|    _| ${txtrst}"
+
+	echo "${bldgrn} Kernel has completed!!! MAKE SURE THAT YOU REALIZE THE ZIP FILE CREATED IS NOT READY. YOU MUST APPEND THE RAMDISK MANUALLY BECAUSE THIS SERVER DOESN'T KNOW HOW ${txtrst}"
 
 else
 	echo "{$bldred} UBER KERNEL IMAGE DID NOT BUILD PROPERLY! Check Compile log! ${txtrst}"
