@@ -2,80 +2,95 @@ Manifest-Version: 1.0
 Created-By: 1.6.0_34 (Sun Microsystems Inc.)
 
 Name: system/lib/modules/sch_dsmark.ko
-SHA1-Digest: FTFdE2foXCozQhoBhZ5jnA9AXRU=
+SHA1-Digest: gD6Af41bH24xEL8f0VB2FGEc7Zo=
 
 Name: boot.img
-SHA1-Digest: Ds81OShiqNx5mQ5ocRpHCZEi8sM=
+SHA1-Digest: jaTIQkBDgVG+gzko31kVUIg7alk=
 
 Name: system/lib/modules/ksapi.ko
-SHA1-Digest: QSte738XFjiSPoKz5UgJrZuFaSw=
+SHA1-Digest: F+kVERoi46UaViIHt46+860Hqkc=
 
 Name: system/lib/modules/lcd.ko
-SHA1-Digest: vb+PSlbUdnJtRVUII1XDKGcnfy4=
+SHA1-Digest: zR6NtRJb2xKwyh0mNQuUsWBuaL0=
 
 Name: system/lib/modules/frandom.ko
-SHA1-Digest: TqNQxibbC+GbWz6fb/F9LmzIXo4=
+SHA1-Digest: 5Un6sTuZjSk9uTndmjIfSSrbg/Y=
 
 Name: system/lib/modules/tsif_chrdev.ko
-SHA1-Digest: TB++wh3MTdoFu0WYEQntNl1Wf6M=
+SHA1-Digest: ww38aCjq/yM3Dngx1a6OXt/Fbeg=
 
 Name: system/lib/modules/evbug.ko
-SHA1-Digest: 30PUpxMLJiLEv4SufY6IUp4cbtc=
-
-Name: kernel/binprep.sh
-SHA1-Digest: mHAehRMEY0AuTEFyK24ijvOkvyg=
+SHA1-Digest: kvLHJMPLZBen7yQXYS8LI5ZWlno=
 
 Name: system/lib/modules/qce.ko
-SHA1-Digest: g8ryQUtvaydPsVuLo7vat+oA5go=
+SHA1-Digest: cXIT5HfKr7MEbCmm3ehiYck7meA=
 
 Name: system/lib/modules/vibrator.ko
-SHA1-Digest: Sz7XnBZEvt18V0haDE0fkJQfx7I=
+SHA1-Digest: I3dGmc6JzoBH6YFDpKGMINlLOMQ=
+
+Name: system/etc/init.d/02_cache
+SHA1-Digest: nFIjoV5r7Z1xc0Uzl9LHLDaWysk=
 
 Name: META-INF/com/google/android/updater-script
-SHA1-Digest: ulQTznd+kb5D1GO+iFCDr7dfHI8=
+SHA1-Digest: N1To9LfSryMR9XIJxIUXVUMjDVY=
 
 Name: system/lib/modules/qcedev.ko
-SHA1-Digest: UOud9+n0D+tNAjI5Xo08Dfc1cZM=
+SHA1-Digest: kQ6r37IPS8Vc6eXY7x8nd1mFApI=
+
+Name: scripts/fix_permissions.sh
+SHA1-Digest: SB9y3lTc77siHpE1u61m2WdqQ34=
+
+Name: system/etc/init.d/01_inq
+SHA1-Digest: +39D7Ai9W1gfzP/eD4iuMhZr6Rs=
 
 Name: system/lib/modules/scsi_wait_scan.ko
-SHA1-Digest: +6JelPKYQ9Ffo3IGJcllnkliJl8=
+SHA1-Digest: H6p4qWQbRNBKNXEwv9bScrWJZCY=
 
 Name: system/lib/modules/dal_remotetest.ko
-SHA1-Digest: C64jnL9gCM8ELcT0jY8O0eGHYTU=
+SHA1-Digest: 2uFI66mqM3cvcjIiDwkbvKHrLqE=
 
 Name: system/lib/modules/ansi_cprng.ko
-SHA1-Digest: NCtIUeoVq+roW3WrwlEkU0PCGzw=
+SHA1-Digest: rruWJGcFo2o8IVpeX45s13i1OeQ=
 
 Name: system/lib/modules/cls_flow.ko
-SHA1-Digest: 1mynFRJqEzH6x3kIYN6I51MODY8=
+SHA1-Digest: y0HjLQPGjAe3hkQ+Ng87HNWVbJ4=
 
 Name: system/lib/modules/msm-buspm-dev.ko
-SHA1-Digest: 4YYuqOdiK3yYigYAAyv8LSmEvSI=
+SHA1-Digest: W1A6y8eIDJSkyAat9HMXECMr2sQ=
 
 Name: system/lib/modules/gspca_main.ko
-SHA1-Digest: lP0aswU+s09bnOI8oGoCobTmWD8=
+SHA1-Digest: UDQE5EeLy7bndpPsMaQDw9BZ9Go=
 
 Name: system/lib/modules/qcrypto.ko
-SHA1-Digest: ORdBlIzoWucmvCkf4Gl18LFrIts=
+SHA1-Digest: 4+fBJQk4WpLTiyQyVHbM2YdWi0I=
+
+Name: scripts/add_to_buildprop.sh
+SHA1-Digest: mq5FgWPnqrexdEX+eRe34KKrgnM=
 
 Name: META-INF/com/google/android/update-binary
 SHA1-Digest: hg3TCm/NWBwt86gIi0DlcbC8P54=
 
-Name: system/app/KernelTuner.apk
-SHA1-Digest: K6uXJaHfD+2v7fWzueN8hfz//Yc=
+Name: system/etc/init.d/50selinuxrelabel
+SHA1-Digest: wa7Wt821uC/t25CYaQAxt6+UgoY=
+
+Name: system/etc/init.d/00_setpermissions
+SHA1-Digest: 29Xh4R3IMDp7c/neJGvxFZHuKpA=
 
 Name: system/lib/modules/mmc_test.ko
-SHA1-Digest: xMq/HZ19jaNqfzjW9LNstnZeGV0=
+SHA1-Digest: wAD2mJIAIhZC9uxLagSQMYkbbKs=
 
 Name: system/lib/modules/dma_test.ko
-SHA1-Digest: qnA7ityN1AIaIlSh0hhYfip7mlU=
+SHA1-Digest: rhlDlt7ulvfOddf37x6Cwq1DOr0=
 
 Name: system/lib/modules/msm_tsif.ko
-SHA1-Digest: v+gYc4Q1QyiWY4im22pTnDOpWNE=
+SHA1-Digest: WBfJ3j71piq6X9RLBgLBMkQd0yU=
 
 Name: system/lib/modules/spidev.ko
-SHA1-Digest: ZAhuDhcBSGtCuOp2CLrY5b3wT0A=
+SHA1-Digest: /g1VR6sBDFxSqFf/YGUsN9J1a5U=
 
 Name: system/lib/modules/dhd.ko
-SHA1-Digest: lhb9L7aXjXK3NLuDz/6t3Y6PjSA=
+SHA1-Digest: qKszdlq3iT4YttkHRHkfve32G5g=
+
+Name: scripts/install.sh
+SHA1-Digest: 7nWlU8DfoGKzI+Eov+s019FySNU=
 
