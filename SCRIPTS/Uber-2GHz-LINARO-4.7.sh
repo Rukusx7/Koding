@@ -17,12 +17,13 @@ bldpur=${txtbld}$(tput setaf 5) # purple
 bldpnk=${txtbld}$(tput bold ; tput setaf 5) # pink
 bldcya=${txtbld}$(tput setaf 6) # cyan
 txtrst=$(tput sgr0) # Reset
+
+# Use this to change defconfig on the fly
 DEFCONFIG=cyanogenmod_hercules_defconfig
 
 export KERNELDIR=~/android/kernel/
 export INITRAMFS_DEST=~/android/kernel/usr/initramfs
 export PACKAGEDIR=~/android/kernel/OUT
-export INITRAMFS_SOURCE=~/android/kernel/
 export Meta=~/android/kernel/Cl3Kener/META-INF
 export Etc=~/android/kernel/Cl3Kener/etc
 export Scripts=~/android/kernel/Cl3Kener/scripts
@@ -59,34 +60,33 @@ rm $PACKAGEDIR/zImage
 rm arch/arm/boot/zImage
 
 echo "${bldcya} Remove old ramdisk ${txtrst}"
-rm $INITRAMFS_SOURCE/ramdisk.img.gz
+rm $KERNELDIR/ramdisk.img.gz
 
 echo -e "${bldred} Removing pesky backup files ${txtrst}"
 cd ~/android/kernel
 find ./ -name '*~' | xargs rm
 
-cd $INITRAMFS_SOURCE
-
 echo "${bldpnk} Make the kernel ${txtrst}"
-make cyanogenmod_hercules_defconfig
+cd $KERNELDIR
+make $DEFCONFIG
 
 echo "${bldyel} Clean Environment ${txtrst}"
 make clean
-rm $INITRAMFS_SOURCE/.version
-rm $INITRAMFS_SOURCE/.config.old
+rm $KERNELDIR/.version
+rm $KERNELDIR/.config.old
 make menuconfig
 
 echo "${bldcya} Compiling ${txtrst}"
 script -q ~/Compile.log -c " 
 make -j16 "
 
-if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
+if [ -e $KERNELDIR/arch/arm/boot/zImage ]; then
 
 	echo "${bldgrn} Copy modules to OUT ${txtrst}"
 	cp -a $(find . -name *.ko -print |grep -v initramfs) $PACKAGEDIR/system/lib/modules/
 
 	echo "${bldred} Copy zImage to OUT ${txtrst}"
-	cp $INITRAMFS_SOURCE/arch/arm/boot/zImage $PACKAGEDIR/zImage
+	cp $KERNELDIR/arch/arm/boot/zImage $PACKAGEDIR/zImage
 
 	echo "${bldgrn} Import of META-INF ${txtrst}"
 	cp -R $Meta $PACKAGEDIR
