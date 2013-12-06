@@ -73,37 +73,25 @@ if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
 	echo "${bldred} Copy zImage to OUT ${txtrst}"
 	cp $INITRAMFS_SOURCE/arch/arm/boot/zImage $PACKAGEDIR/zImage
 
-	echo "${bldblu} Packaging Ramdisk ${txtrst}"
-	cd $INITRAMFS_SOURCE/
-	mkbootfs ./ramdisk | gzip > ramdisk.img.gz
-
-	echo "${bldcya} Make boot.img ${txtrst}"
-	cp $INITRAMFS_SOURCE/ramdisk.img.gz $PACKAGEDIR/ramdisk.img.gz
-	cd $PACKAGEDIR
-	mkbootimg --cmdline 'console = null androidboot.hardware=qcom user_debug=31 zcache' --kernel $PACKAGEDIR/zImage --ramdisk $PACKAGEDIR/ramdisk.img.gz --base 0x40400000 --pagesize 2048 --ramdiskaddr 0x41800000 --output $PACKAGEDIR/boot.img
-
 	echo "${bldgrn} Import of META-INF ${txtrst}"
 	cp -R $Meta $PACKAGEDIR
 
 	echo "${bldcya} Import Init.d Tweaks ${txtrst}"
 	cp -R $Etc/init.d $PACKAGEDIR/system/etc
-	cp $Etc/sysctl.conf $PACKAGEDIR/system/etc/sysctl.conf
 
 	echo "${bldblu} Import Scripts ${txtrst}"
 	cp -R $Scripts $PACKAGEDIR
 
 	export curdate=`date "+%m-%d-%Y"`
-        cp ~/Compile.log ~/android/Logs/Completed-4.2.2-$curdate.log
+        cp ~/Compile.log ~/android/Logs/Completed-Uber-4.4-LINARO-$curdate.log
         rm ~/Compile.log
 
 	cd $PACKAGEDIR
-	rm ramdisk.img.gz
-	rm zImage
-	rm ../STABLE-Cl3Kener-Nightly*.zip\
+	rm ../UBER-Android-4.4-LINARO-Cl3Kener-Nightly*.zip\
 	rm -R .fr-7q5stU
-	zip -r ../STABLE-Cl3Kener-Nightly-$curdate.zip .
+	zip -r ../UBER-Android-4.4-LINARO-Cl3Kener-Nightly-$curdate.zip .
 
-	echo "${bldgrn} STABLE Kernel has completed successfully!!! ${txtrst}"
+	echo "${bldgrn} STABLE Kernel has completed successfully!!! MAKE SURE THAT YOU REALIZE THE ZIP FILE CREATED IS NOT READY. YOU MUST APPEND THE RAMDISK MANUALLY BECAUSE THIS SERVER DOESN'T KNOW HOW ${txtrst}"
 
 else
 	echo "{$bldred} STABLE KERNEL IMAGE DID NOT BUILD PROPERLY! Check Compile log! ${txtrst}"
