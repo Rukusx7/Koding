@@ -29,12 +29,19 @@ export Scripts=~/android/kernel/Cl3Kener/scripts
 export ARCH=arm
 export CROSS_COMPILE=~/android/kernel/toolchains/linaro-4.7/bin/arm-eabi-
 
-echo "${bldred} _|    _|  _|_|_|    _|_|_|_|  _|_|_|   ${txtrst}"
-echo "${bldred} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
-echo "${bldred} _|    _|  _|_|_|    _|_|_|    _|_|_|   ${txtrst}"
-echo "${bldred} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
-echo "${bldred} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
-echo "${bldred}   _|_|    _|_|_|    _|_|_|_|  _|    _| ${txtrst}"
+echo "${bldyel}                                          ${txtrst}"
+echo "${bldyel}                                          ${txtrst}"
+echo "${bldyel} ________________________________________ ${txtrst}"
+echo "${bldyel}|                                        |${txtrst}"
+echo "${bldyel}| _|    _|  _|_|_|    _|_|_|_|  _|_|_|   |${txtrst}"
+echo "${bldyel}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+echo "${bldyel}| _|    _|  _|_|_|    _|_|_|    _|_|_|   |${txtrst}"
+echo "${bldyel}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+echo "${bldyel}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+echo "${bldyel}|   _|_|    _|_|_|    _|_|_|_|  _|    _| |${txtrst}"
+echo "${bldyel}|________________________________________|${txtrst}"
+echo "${bldyel}                                          ${txtrst}"
+echo "${bldyel}                                          ${txtrst}"
 
 rm -rf $PACKAGEDIR/*
 
@@ -97,19 +104,39 @@ if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
 	rm -R .fr-7q5stU
 	zip -r ../UBER-2GHz-Cl3Kener-LINARO-$curdate.zip .
 
-	echo "${bldgrn} _|    _|  _|_|_|    _|_|_|_|  _|_|_|   ${txtrst}"
-	echo "${bldgrn} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
-	echo "${bldgrn} _|    _|  _|_|_|    _|_|_|    _|_|_|   ${txtrst}"
-	echo "${bldgrn} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
-	echo "${bldgrn} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
-	echo "${bldgrn}   _|_|    _|_|_|    _|_|_|_|  _|    _| ${txtrst}"
+	echo "${bldgrn}                                          ${txtrst}"
+	echo "${bldgrn}                                          ${txtrst}"
+	echo "${bldgrn} ________________________________________ ${txtrst}"
+	echo "${bldgrn}|                                        |${txtrst}"
+	echo "${bldgrn}| _|    _|  _|_|_|    _|_|_|_|  _|_|_|   |${txtrst}"
+	echo "${bldgrn}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+	echo "${bldgrn}| _|    _|  _|_|_|    _|_|_|    _|_|_|   |${txtrst}"
+	echo "${bldgrn}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+	echo "${bldgrn}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+	echo "${bldgrn}|   _|_|    _|_|_|    _|_|_|_|  _|    _| |${txtrst}"
+	echo "${bldgrn}|________________________________________|${txtrst}"
+	echo "${bldgrn}                                          ${txtrst}"
+	echo "${bldgrn}                                          ${txtrst}"
 
-	echo "${bldgrn} Kernel has completed sucessfully!!! MAKE SURE THAT YOU REALIZE THE ZIP FILE CREATED IS NOT READY. YOU MUST APPEND THE RAMDISK MANUALLY BECAUSE THIS SERVER DOESN'T KNOW HOW ${txtrst}"
+	echo "${bldgrn} 2GHz Kernel has completed!!! MAKE SURE THAT YOU REALIZE THE ZIP FILE CREATED IS NOT READY. YOU MUST APPEND THE RAMDISK MANUALLY BECAUSE THIS SERVER DOESN'T KNOW HOW ${txtrst}"
 
 else
-	echo "{$bldred} UBER 2GHz KERNEL IMAGE DID NOT BUILD PROPERLY! Check Compile log! ${txtrst}"
+	echo "${bldred}                                          ${txtrst}"
+	echo "${bldred}                                          ${txtrst}"
+	echo "${bldred} ________________________________________ ${txtrst}"
+	echo "${bldred}|                                        |${txtrst}"
+	echo "${bldred}| _|    _|  _|_|_|    _|_|_|_|  _|_|_|   |${txtrst}"
+	echo "${bldred}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+	echo "${bldred}| _|    _|  _|_|_|    _|_|_|    _|_|_|   |${txtrst}"
+	echo "${bldred}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+	echo "${bldred}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+	echo "${bldred}|   _|_|    _|_|_|    _|_|_|_|  _|    _| |${txtrst}"
+	echo "${bldred}|________________________________________|${txtrst}"
+	echo "${bldred}                                          ${txtrst}"
+	echo "${bldred}                                          ${txtrst}"
+	echo "{$bldred} 2GHz KERNEL IMAGE DID NOT BUILD PROPERLY! Check Compile log! ${txtrst}"
 	export curdate=`date "+%m-%d-%Y"`
-	cp ~/Compile.log ~/android/Logs/Failed-Uber-2GHz-Kernel-$curdate.log
+	cp ~/Compile.log ~/android/Logs/Failed-Uber-4.4-LINARO-$curdate.log
 fi;
 
 read -p "Press ENTER to Exit"
