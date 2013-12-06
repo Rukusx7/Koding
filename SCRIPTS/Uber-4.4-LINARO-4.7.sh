@@ -30,19 +30,19 @@ export BuildBoot=~/android/kernel/BuildBootUBER
 export ARCH=arm
 export CROSS_COMPILE=~/android/kernel/toolchains/linaro-4.7/bin/arm-eabi-
 
-echo "${bldred}                                          ${txtrst}"
-echo "${bldred}                                          ${txtrst}"
-echo "${bldred} ________________________________________ ${txtrst}"
-echo "${bldred}|                                        |${txtrst}"
-echo "${bldred}| _|    _|  _|_|_|    _|_|_|_|  _|_|_|   |${txtrst}"
-echo "${bldred}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
-echo "${bldred}| _|    _|  _|_|_|    _|_|_|    _|_|_|   |${txtrst}"
-echo "${bldred}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
-echo "${bldred}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
-echo "${bldred}|   _|_|    _|_|_|    _|_|_|_|  _|    _| |${txtrst}"
-echo "${bldred}|________________________________________|${txtrst}"
-echo "${bldred}                                          ${txtrst}"
-echo "${bldred}                                          ${txtrst}"
+echo "${bldyel}                                          ${txtrst}"
+echo "${bldyel}                                          ${txtrst}"
+echo "${bldyel} ________________________________________ ${txtrst}"
+echo "${bldyel}|                                        |${txtrst}"
+echo "${bldyel}| _|    _|  _|_|_|    _|_|_|_|  _|_|_|   |${txtrst}"
+echo "${bldyel}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+echo "${bldyel}| _|    _|  _|_|_|    _|_|_|    _|_|_|   |${txtrst}"
+echo "${bldyel}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+echo "${bldyel}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+echo "${bldyel}|   _|_|    _|_|_|    _|_|_|_|  _|    _| |${txtrst}"
+echo "${bldyel}|________________________________________|${txtrst}"
+echo "${bldyel}                                          ${txtrst}"
+echo "${bldyel}                                          ${txtrst}"
 
 rm -rf $PACKAGEDIR/*
 
