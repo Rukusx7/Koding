@@ -17,6 +17,8 @@ bldpur=${txtbld}$(tput setaf 5) # purple
 bldpnk=${txtbld}$(tput bold ; tput setaf 5) # pink
 bldcya=${txtbld}$(tput setaf 6) # cyan
 txtrst=$(tput sgr0) # Reset
+
+# Use this line to change Defconfig
 DEFCONFIG=cyanogenmod_hercules_defconfig
 
 export KERNELDIR=~/android/kernel/
@@ -66,7 +68,7 @@ cd ~/android/kernel
 find ./ -name '*~' | xargs rm
 
 echo "${bldpnk} Make the kernel ${txtrst}"
-make cyanogenmod_hercules_defconfig
+make $DEFCONFIG
 
 echo "${bldyel} Clean Environment ${txtrst}"
 make clean
