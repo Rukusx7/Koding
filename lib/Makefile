@@ -8,7 +8,7 @@ KBUILD_CFLAGS = $(subst -pg,,$(ORIG_CFLAGS))
 endif
 
 lib-y := ctype.o string.o vsprintf.o cmdline.o \
-	 rbtree.o radix-tree.o sradix-tree.o dump_stack.o timerqueue.o\
+	 rbtree.o radix-tree.o dump_stack.o timerqueue.o\
 	 idr.o int_sqrt.o extable.o prio_tree.o \
 	 sha1.o md5.o irq_regs.o reciprocal_div.o argv_split.o \
 	 proportions.o prio_heap.o ratelimit.o show_mem.o \
@@ -112,9 +112,6 @@ obj-$(CONFIG_ATOMIC64_SELFTEST) += atomic64_test.o
 obj-$(CONFIG_AVERAGE) += average.o
 
 obj-$(CONFIG_CPU_RMAP) += cpu_rmap.o
-
-obj-$(CONFIG_GENERIC_STRNCPY_FROM_USER) += strncpy_from_user.o
-obj-$(CONFIG_GENERIC_STRNLEN_USER) += strnlen_user.o
 
 hostprogs-y	:= gen_crc32table
 clean-files	:= crc32table.h
