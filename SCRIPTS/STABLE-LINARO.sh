@@ -56,7 +56,7 @@ find ./ -name '*~' | xargs rm
 
 echo "${bldpnk} Make the kernel ${txtrst}"
 cd $KERNELDIR
-make cyanogenmod_hercules_defconfig
+make $DEFCONFIG
 
 echo "${bldyel} Clean Environment ${txtrst}"
 make clean
