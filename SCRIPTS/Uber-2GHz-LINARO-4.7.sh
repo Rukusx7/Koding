@@ -72,6 +72,8 @@ make cyanogenmod_hercules_defconfig
 
 echo "${bldyel} Clean Environment ${txtrst}"
 make clean
+rm $INITRAMFS_SOURCE/.version
+rm $INITRAMFS_SOURCE/.config.old
 make menuconfig
 
 echo "${bldcya} Compiling ${txtrst}"
