@@ -22,7 +22,6 @@ DEFCONFIG=cyanogenmod_hercules_defconfig
 export KERNELDIR=~/android/kernel/
 export INITRAMFS_DEST=~/android/kernel/usr/initramfs
 export PACKAGEDIR=~/android/kernel/OUT
-export INITRAMFS_SOURCE=~/android/kernel/
 export Meta=~/android/kernel/Cl3Kener/META-INF
 export Etc=~/android/kernel/Cl3Kener/etc
 export Scripts=~/android/kernel/Cl3Kener/scripts
@@ -60,7 +59,7 @@ rm $PACKAGEDIR/zImage
 rm arch/arm/boot/zImage
 
 echo "${bldcya} Remove old ramdisk ${txtrst}"
-rm $INITRAMFS_SOURCE/ramdisk.img.gz
+rm $KERNELDIR/ramdisk.img.gz
 
 echo -e "${bldred} Removing pesky backup files ${txtrst}"
 cd ~/android/kernel
@@ -71,28 +70,28 @@ make cyanogenmod_hercules_defconfig
 
 echo "${bldyel} Clean Environment ${txtrst}"
 make clean
-rm $INITRAMFS_SOURCE/.version
-rm $INITRAMFS_SOURCE/.config.old
+rm $KERNELDIR/.version
+rm $KERNELDIR/.config.old
 make menuconfig
 
 echo "${bldcya} Compiling ${txtrst}"
 script -q ~/Compile.log -c " 
 make -j16 "
 
-if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
+if [ -e $KERNELDIR/arch/arm/boot/zImage ]; then
 
 	echo "${bldgrn} Copy modules to OUT ${txtrst}"
 	cp -a $(find . -name *.ko -print |grep -v initramfs) $PACKAGEDIR/system/lib/modules/
 
 	echo "${bldred} Copy zImage to OUT ${txtrst}"
-	cp $INITRAMFS_SOURCE/arch/arm/boot/zImage $PACKAGEDIR/zImage
+	cp $KERNELDIR/arch/arm/boot/zImage $PACKAGEDIR/zImage
 
 	echo "${bldblu} Packaging Ramdisk ${txtrst}"
-	cd $INITRAMFS_SOURCE/
+	cd $KERNELDIR/
 	mkbootfs ./ramdisk | gzip > ramdisk.img.gz
 
 	echo "${bldcya} Make boot.img ${txtrst}"
-	cp $INITRAMFS_SOURCE/ramdisk.img.gz $PACKAGEDIR/ramdisk.img.gz
+	cp $KERNELDIR/ramdisk.img.gz $PACKAGEDIR/ramdisk.img.gz
 	cd $PACKAGEDIR
 	mkbootimg --cmdline 'console = null androidboot.hardware=qcom user_debug=31 zcache' --kernel $PACKAGEDIR/zImage --ramdisk $PACKAGEDIR/ramdisk.img.gz --base 0x40400000 --pagesize 2048 --ramdiskaddr 0x41800000 --output $PACKAGEDIR/boot.img
 
