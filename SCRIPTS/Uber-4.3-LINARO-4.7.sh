@@ -29,12 +29,19 @@ export Scripts=~/android/kernel/Cl3Kener/scripts
 export ARCH=arm
 export CROSS_COMPILE=~/android/kernel/toolchains/linaro-4.7/bin/arm-eabi-
 
-echo "${bldred} _|    _|  _|_|_|    _|_|_|_|  _|_|_|   ${txtrst}"
-echo "${bldred} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
-echo "${bldred} _|    _|  _|_|_|    _|_|_|    _|_|_|   ${txtrst}"
-echo "${bldred} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
-echo "${bldred} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
-echo "${bldred}   _|_|    _|_|_|    _|_|_|_|  _|    _| ${txtrst}"
+echo "${bldred}                                          ${txtrst}"
+echo "${bldred}                                          ${txtrst}"
+echo "${bldred} ________________________________________ ${txtrst}"
+echo "${bldred}|                                        |${txtrst}"
+echo "${bldred}| _|    _|  _|_|_|    _|_|_|_|  _|_|_|   |${txtrst}"
+echo "${bldred}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+echo "${bldred}| _|    _|  _|_|_|    _|_|_|    _|_|_|   |${txtrst}"
+echo "${bldred}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+echo "${bldred}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+echo "${bldred}|   _|_|    _|_|_|    _|_|_|_|  _|    _| |${txtrst}"
+echo "${bldred}|________________________________________|${txtrst}"
+echo "${bldred}                                          ${txtrst}"
+echo "${bldred}                                          ${txtrst}"
 
 echo "${bldcya} Remove old Package Files ${txtrst}"
 rm -rf $PACKAGEDIR/*
