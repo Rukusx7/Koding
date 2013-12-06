@@ -117,19 +117,39 @@ if [ -e $INITRAMFS_SOURCE/arch/arm/boot/zImage ]; then
 	rm -R .fr-7q5stU
 	zip -r ../UBER-4.3-LINARO-Cl3Kener-Nightly-$curdate.zip .
 
-	echo "${bldgrn} _|    _|  _|_|_|    _|_|_|_|  _|_|_|   ${txtrst}"
-	echo "${bldgrn} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
-	echo "${bldgrn} _|    _|  _|_|_|    _|_|_|    _|_|_|   ${txtrst}"
-	echo "${bldgrn} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
-	echo "${bldgrn} _|    _|  _|    _|  _|        _|    _| ${txtrst}"
-	echo "${bldgrn}   _|_|    _|_|_|    _|_|_|_|  _|    _| ${txtrst}"
+	echo "${bldgrn}                                          ${txtrst}"
+	echo "${bldgrn}                                          ${txtrst}"
+	echo "${bldgrn} ________________________________________ ${txtrst}"
+	echo "${bldgrn}|                                        |${txtrst}"
+	echo "${bldgrn}| _|    _|  _|_|_|    _|_|_|_|  _|_|_|   |${txtrst}"
+	echo "${bldgrn}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+	echo "${bldgrn}| _|    _|  _|_|_|    _|_|_|    _|_|_|   |${txtrst}"
+	echo "${bldgrn}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+	echo "${bldgrn}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+	echo "${bldgrn}|   _|_|    _|_|_|    _|_|_|_|  _|    _| |${txtrst}"
+	echo "${bldgrn}|________________________________________|${txtrst}"
+	echo "${bldgrn}                                          ${txtrst}"
+	echo "${bldgrn}                                          ${txtrst}"
 
 	echo "${bldgrn} Kernel has completed!!! MAKE SURE THAT YOU REALIZE THE ZIP FILE CREATED IS NOT READY. YOU MUST APPEND THE RAMDISK MANUALLY BECAUSE THIS SERVER DOESN'T KNOW HOW ${txtrst}"
 
 else
-	echo "{$bldred} UBER 4.3 KERNEL IMAGE DID NOT BUILD PROPERLY! Check Compile log! ${txtrst}"
+	echo "${bldred}                                          ${txtrst}"
+	echo "${bldred}                                          ${txtrst}"
+	echo "${bldred} ________________________________________ ${txtrst}"
+	echo "${bldred}|                                        |${txtrst}"
+	echo "${bldred}| _|    _|  _|_|_|    _|_|_|_|  _|_|_|   |${txtrst}"
+	echo "${bldred}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+	echo "${bldred}| _|    _|  _|_|_|    _|_|_|    _|_|_|   |${txtrst}"
+	echo "${bldred}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+	echo "${bldred}| _|    _|  _|    _|  _|        _|    _| |${txtrst}"
+	echo "${bldred}|   _|_|    _|_|_|    _|_|_|_|  _|    _| |${txtrst}"
+	echo "${bldred}|________________________________________|${txtrst}"
+	echo "${bldred}                                          ${txtrst}"
+	echo "${bldred}                                          ${txtrst}"
+	echo "{$bldred} KERNEL IMAGE DID NOT BUILD PROPERLY! Check Compile log! ${txtrst}"
 	export curdate=`date "+%m-%d-%Y"`
-	cp ~/Compile.log ~/android/Logs/Failed-Uber-4.3-LINARO-$curdate.log
+	cp ~/Compile.log ~/android/Logs/Failed-Uber-4.4-LINARO-$curdate.log
 fi;
 
 read -p "Press ENTER to Exit"
