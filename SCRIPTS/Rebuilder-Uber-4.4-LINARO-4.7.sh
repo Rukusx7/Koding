@@ -1,5 +1,5 @@
 #!/bin/bash
-#Cl3Kener's UBER 4.3 Script
+#Cl3Kener's 4.4 Script
 
 # Colorize and add text parameters
 red=$(tput setaf 1) # red
@@ -17,8 +17,6 @@ bldpur=${txtbld}$(tput setaf 5) # purple
 bldpnk=${txtbld}$(tput bold ; tput setaf 5) # pink
 bldcya=${txtbld}$(tput setaf 6) # cyan
 txtrst=$(tput sgr0) # Reset
-
-# Use this line to change Defconfig
 DEFCONFIG=cyanogenmod_hercules_defconfig
 
 export KERNELDIR=~/android/kernel/
@@ -27,6 +25,7 @@ export PACKAGEDIR=~/android/kernel/OUT
 export Meta=~/android/kernel/Cl3Kener/META-INF
 export Etc=~/android/kernel/Cl3Kener/etc
 export Scripts=~/android/kernel/Cl3Kener/scripts
+export BuildBoot=~/android/kernel/BuildBootUBER
 export ARCH=arm
 export CROSS_COMPILE=~/android/kernel/toolchains/linaro-4.7/bin/arm-eabi-
 
@@ -44,7 +43,6 @@ echo "${bldyel}|________________________________________|${txtrst}"
 echo "${bldyel}                                          ${txtrst}"
 echo "${bldyel}                                          ${txtrst}"
 
-echo "${bldcya} Remove old Package Files ${txtrst}"
 rm -rf $PACKAGEDIR/*
 
 echo "${bldpur} Setup Package Directory ${txtrst}"
@@ -63,15 +61,11 @@ rm arch/arm/boot/zImage
 echo "${bldcya} Remove old ramdisk ${txtrst}"
 rm $KERNELDIR/ramdisk.img.gz
 
-echo -e "${bldred} Removing pesky backup files ${txtrst}"
-cd ~/android/kernel
-find ./ -name '*~' | xargs rm
-
 echo "${bldpnk} Make the kernel ${txtrst}"
+cd $KERNELDIR
 make $DEFCONFIG
 
 echo "${bldyel} Clean Environment ${txtrst}"
-make clean
 rm $KERNELDIR/.version
 rm $KERNELDIR/.config.old
 make menuconfig
@@ -88,35 +82,23 @@ if [ -e $KERNELDIR/arch/arm/boot/zImage ]; then
 	echo "${bldred} Copy zImage to OUT ${txtrst}"
 	cp $KERNELDIR/arch/arm/boot/zImage $PACKAGEDIR/zImage
 
-	echo "${bldblu} Packaging Ramdisk ${txtrst}"
-	cd $KERNELDIR/
-	mkbootfs ./ramdisk | gzip > ramdisk.img.gz
-
-	echo "${bldcya} Make boot.img ${txtrst}"
-	cp $KERNELDIR/ramdisk.img.gz $PACKAGEDIR/ramdisk.img.gz
-	cd $PACKAGEDIR
-	mkbootimg --cmdline 'console = null androidboot.hardware=qcom user_debug=31 zcache' --kernel $PACKAGEDIR/zImage --ramdisk $PACKAGEDIR/ramdisk.img.gz --base 0x40400000 --pagesize 2048 --ramdiskaddr 0x41800000 --output $PACKAGEDIR/boot.img
-
 	echo "${bldgrn} Import of META-INF ${txtrst}"
 	cp -R $Meta $PACKAGEDIR
 
 	echo "${bldcya} Import Init.d Tweaks ${txtrst}"
 	cp -R $Etc/init.d $PACKAGEDIR/system/etc
-	cp $Etc/sysctl.conf $PACKAGEDIR/system/etc/sysctl.conf
 
 	echo "${bldblu} Import Scripts ${txtrst}"
 	cp -R $Scripts $PACKAGEDIR
 
 	export curdate=`date "+%m-%d-%Y"`
-        cp ~/Compile.log ~/android/Logs/Completed-Uber-4.3-LINARO-$curdate.log
+        cp ~/Compile.log ~/android/Logs/Completed-Uber-4.4-LINARO-$curdate.log
         rm ~/Compile.log
 
 	cd $PACKAGEDIR
-	rm ramdisk.img.gz
-	rm zImage
-	rm ../UBER-4.3-LINARO-Cl3Kener-Nightly*.zip\
+	rm ../UBER-Android-4.4-LINARO-Cl3Kener-Nightly*.zip\
 	rm -R .fr-7q5stU
-	zip -r ../UBER-4.3-LINARO-Cl3Kener-Nightly-$curdate.zip .
+	zip -r ../UBER-Android-4.4-LINARO-Cl3Kener-Nightly-$curdate.zip .
 
 	echo "${bldgrn}                                          ${txtrst}"
 	echo "${bldgrn}                                          ${txtrst}"
