@@ -30,6 +30,8 @@ export Scripts=~/android/kernel/Cl3Kener/scripts
 export ARCH=arm
 export CROSS_COMPILE=~/android/kernel/toolchains/linaro-4.7/bin/arm-eabi-
 
+res1=$(date +%s.%N)
+
 echo "${bldyel}                                          ${txtrst}"
 echo "${bldyel}                                          ${txtrst}"
 echo "${bldyel} ________________________________________ ${txtrst}"
@@ -120,7 +122,10 @@ if [ -e $KERNELDIR/arch/arm/boot/zImage ]; then
 	echo "${bldgrn}                                          ${txtrst}"
 	echo "${bldgrn}                                          ${txtrst}"
 
-	echo "${bldgrn} 2GHz Kernel has completed!!! MAKE SURE THAT YOU REALIZE THE ZIP FILE CREATED IS NOT READY. YOU MUST APPEND THE RAMDISK MANUALLY BECAUSE THIS SERVER DOESN'T KNOW HOW ${txtrst}"
+	echo "${bldgrn}2GHz Kernel has completed!!! MAKE SURE THAT YOU REALIZE THE ZIP FILE CREATED IS NOT READY. YOU MUST APPEND THE RAMDISK MANUALLY BECAUSE THIS SERVER DOESN'T KNOW HOW ${txtrst}"
+	echo " "
+	res2=$(date +%s.%N)
+	echo "${bldgrn}Total time elapsed: ${txtrst}${grn}$(echo "($res2 - $res1) / 60"|bc ) minutes ($(echo "$res2 - $res1"|bc ) seconds) ${txtrst}"
 
 else
 	echo "${bldred}                                          ${txtrst}"
@@ -139,6 +144,10 @@ else
 	echo "{$bldred} 2GHz KERNEL IMAGE DID NOT BUILD PROPERLY! Check Compile log! ${txtrst}"
 	export curdate=`date "+%m-%d-%Y"`
 	cp ~/Compile.log ~/android/Logs/Failed-Uber-4.4-LINARO-$curdate.log
+	echo " "
+	res2=$(date +%s.%N)
+	echo "${bldred}Total time elapsed: ${txtrst}${red}$(echo "($res2 - $res1) / 60"|bc ) minutes ($(echo "$res2 - $res1"|bc ) seconds) ${txtrst}"
+	echo " "
 fi;
 
 read -p "Press ENTER to Exit"
