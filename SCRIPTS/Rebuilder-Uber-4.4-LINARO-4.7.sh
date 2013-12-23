@@ -96,9 +96,9 @@ if [ -e $KERNELDIR/arch/arm/boot/zImage ]; then
         rm ~/Compile.log
 
 	cd $PACKAGEDIR
-	rm ../UBER-Android-4.4-LINARO-Cl3Kener-Nightly*.zip\
+	rm ../UBER-Skyrocket-4.4-LINARO-Cl3Kener-Nightly*.zip\
 	rm -R .fr-7q5stU
-	zip -r ../UBER-Android-4.4-LINARO-Cl3Kener-Nightly-$curdate.zip .
+	zip -r ../UBER-Skyrocket-4.4-LINARO-Cl3Kener-Nightly-$curdate.zip .
 
 	echo "${bldgrn}                                          ${txtrst}"
 	echo "${bldgrn}                                          ${txtrst}"
