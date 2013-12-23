@@ -73,7 +73,7 @@ make menuconfig
 
 echo "${bldcya} Compiling ${txtrst}"
 script -q ~/Compile.log -c " 
-make -j16 "
+make -j4 "
 
 if [ -e $KERNELDIR/arch/arm/boot/zImage ]; then
 
